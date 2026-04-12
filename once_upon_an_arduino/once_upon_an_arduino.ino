@@ -3,6 +3,8 @@
 Servo servo_hades; //180 servo 
 Servo servo_turn; //180 servo 
 
+const int ledPin = 11; 
+
 //switches
 const int buttonPin = 2; 
 const int buttonPin_2 = 3; 
@@ -11,8 +13,11 @@ const int buttonPin_2 = 3;
 void setup() {
   servo_hades.attach(9); 
   pinMode(buttonPin, INPUT);
-  servo_turn.attach(8); 
+  
+  servo_turn.attach(10); 
   pinMode(buttonPin_2, INPUT); //button for turn 
+
+  pinMode(ledPin, OUTPUT); 
 }
 
 void loop() {
@@ -21,8 +26,12 @@ void loop() {
   //servo is triggered to turn up 90 degrees 
   if (digitalRead(buttonPin) == HIGH) {
     servo_hades.write(90); //move
+    delay(1000); 
+    digitalWrite(ledPin, HIGH); //turn led on 
+
   } else {
     servo_hades.write(0); //not move
+    digitalWrite(ledPin, LOW); //keep led off 
   }
 
 
@@ -31,14 +40,13 @@ void loop() {
   if (digitalRead(buttonPin_2) == HIGH) {
     servo_turn.write(180); //turn orpheus around 
   } else {
-    servo_turn.write(0); //no turn 
+    servo_turn.write(0); //starting position
   }
 
   //eurydice falls back into underworld 
-  //servo triggered to turn down, flipping the platform down 
 
 
 
-  //third interaction here
+
 
 }
