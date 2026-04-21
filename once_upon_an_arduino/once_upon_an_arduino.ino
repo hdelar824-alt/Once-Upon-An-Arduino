@@ -36,7 +36,7 @@ void loop() {
   //servo is triggered to turn up 90 degrees 
   if (digitalRead(buttonPin) == HIGH) {
     servo_hades.write(120); //move
-    delay(1000); //wait for about a second 
+    delay(5000); //wait for about 5 seconds
     digitalWrite(ledPin, HIGH); //turn led on 
 
   } else {
