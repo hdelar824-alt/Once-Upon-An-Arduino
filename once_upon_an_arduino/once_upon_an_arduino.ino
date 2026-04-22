@@ -8,10 +8,10 @@ Servo servo_love; //360 servo
 const int ledPin = 11; 
 
 //switches
-const int buttonPin = 2;
-const int buttonPin_2 = 3; 
-const int buttonPin_3 = 4;
-const int buttonPin_4 = 5; 
+const int buttonPin = 2; //hades switch
+const int buttonPin_2 = 3; //orpheus turn switch
+const int buttonPin_3 = 4; //music rotate switch
+const int buttonPin_4 = 5; //hearts rotate switch
 
 
 void setup() {
@@ -19,7 +19,7 @@ void setup() {
   pinMode(buttonPin, INPUT);
   
   servo_turn.attach(10); 
-  pinMode(buttonPin_2, INPUT); //button for turn 
+  pinMode(buttonPin_2, INPUT); 
 
   pinMode(ledPin, OUTPUT);
 
@@ -33,7 +33,7 @@ void setup() {
 void loop() {
 
   //flip up hades 
-  //servo is triggered to turn up 90 degrees 
+  //servo is triggered to turn up 120 degrees 
   if (digitalRead(buttonPin) == HIGH) {
     servo_hades.write(120); //move
     delay(5000); //wait for about 5 seconds
